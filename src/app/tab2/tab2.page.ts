@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  @ViewChild(IonSlides) slides: IonSlides;
+  public wavesPosition: number = 0;
+  public wavesDifference: number = 80;
 
-  constructor() {}
+  constructor(public keyboard: Keyboard) {}
 
+  ngOnInit() {
+   
+  }
+
+  segmentChanged(event: any) {
+    if (event.detail.value === "login") {
+      this.slides.slidePrev();
+      this.wavesPosition += this.wavesDifference;
+    } else{
+      this.slides.slideNext();
+      this.wavesPosition -= this.wavesDifference;
+    }
+  }
 }

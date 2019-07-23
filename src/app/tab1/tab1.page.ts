@@ -9,4 +9,14 @@ export class Tab1Page {
 
   constructor() {}
 
+  bhaskara(){
+    alert(`(∆ = b2 – 4·a·c) \n x = – b ± √∆ / 2a`);
+  }
+  pi(){
+    alert(Math.PI)
+  }
 }
+
+
+
+

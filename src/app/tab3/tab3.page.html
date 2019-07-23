@@ -1,9 +1,46 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Three
-    </ion-title>
-  </ion-toolbar>
+        <ion-toolbar>
+          <ion-title>
+            Calculadora
+          </ion-title>
+        </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content id="corpo">
+    <form name="calc" class="calc">
+      <!-- Calculadora -->
+      <div class="calculadora">
+          <!-- Display da Calculadora -->
+          <div class="calculadora-display">
+              <ion-input id="visor" [(ngModel)]="visor" (keypress)="ApenasLetras($event)" class="calculadora-output" type="text" name="input"></ion-input>
+          </div>
+          <!-- Teclas da Calculadora -->
+          <div class="calculadora-keyboard">
+              <div class="calculadora-row">
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(7)">7</ion-button> 
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(8)">8</ion-button> 
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(9)">9</ion-button> 
+                      <ion-button color="primary" class="calculadora-key operador" (click)="preencher('*')">*</ion-button> 
+              </div>
+              <div class="calculadora-row">
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(4)">4</ion-button> 
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(5)">5</ion-button> 
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(6)">6</ion-button>
+                      <ion-button color="primary" class="calculadora-key operador" (click)="preencher('-')">-</ion-button> 
+              </div>   
+              <div class="calculadora-row">
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(1)">1</ion-button>
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(2)">2</ion-button>
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(3)">3</ion-button>
+                      <ion-button color="primary" class="calculadora-key operador" (click)="preencher('+')">+</ion-button>
+              </div>        
+              <div class="calculadora-row">
+                      <ion-button color="primary" class="calculadora-key operador" (click)="apagar()" (press)="onPress($event)" (pressup)="onPressUp($event)" >C</ion-button>
+                      <ion-button color="light" class="calculadora-key number" (click)="preencher(0)">0</ion-button>
+                      <ion-button color="primary" class="calculadora-key operador" (click)="preencher('/')">/</ion-button>
+                      <ion-button color="primary" class="calculadora-key operador" (click)="fimcalc()">=</ion-button>
+              </div> 
+          </div>    
+      </div>  
+  </form>                           
+</ion-content>
